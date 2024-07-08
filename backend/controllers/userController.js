@@ -137,7 +137,7 @@ const getUsers = asyncHandler(async (req, res) => {
 // @access Private/Admin
 
 const getUserByID = asyncHandler(async (req, res) => {
-	const user = await User.findById(req.pararms.id).select("-password");
+	const user = await User.findById(req.params.id).select("-password");
 
 	if (user) {
 		res.status(200).json(user);
@@ -152,7 +152,7 @@ const getUserByID = asyncHandler(async (req, res) => {
 // @access Private/Admin
 
 const deleteUser = asyncHandler(async (req, res) => {
-	const user = await User.findById(req.pararms.id);
+	const user = await User.findById(req.params.id);
 
 	if (user) {
 		if (user.isAdmin) {
@@ -173,7 +173,7 @@ const deleteUser = asyncHandler(async (req, res) => {
 // @access Private/Admin
 
 const updateUser = asyncHandler(async (req, res) => {
-	const user = await User.findById(req.pararms.id);
+	const user = await User.findById(req.params.id);
 
 	if (user) {
 		user.name = req.body.name || user.name;
