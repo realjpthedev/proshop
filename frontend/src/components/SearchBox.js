@@ -33,8 +33,6 @@ const SearchBox = () => {
 			</Button>
 		</Form>
 	);
-
-	return <div>SearchBox</div>;
 };
 
 export default SearchBox;
